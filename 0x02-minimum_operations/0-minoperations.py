@@ -7,18 +7,14 @@ def minOperations(n):
     """Given a number n, write a method that calculates
        the fewest number of operations needed to
        result in exactly n H characters in the file."""
-    dp = [sys.maxsize] * (n + 1)
-    dp[1] = 0
-    for i in range(2, n + 1):
-        if i % 2 == 0:
-            x = dp[i // 2]
-            if x + 1 < dp[i]:
-                dp[i] = x + 1
-        if i % 3 == 0:
-            x = dp[i // 3]
-            if x + 1 < dp[i]:
-                dp[i] = x + 1
-        x = dp[i - 1]
-        if x + 1 < dp[i]:
-            dp[i] = x + 1
-    return dp[n]
+    """Initial state"""
+    op = 0
+    min_op = 2
+    """Iterate for the remaining numbers"""
+    while n > 1:
+        while n % min_op == 0:
+            op += min_op
+            n /= min_op
+        """Obtaining the number by adding 1"""
+        min_op += 1
+    return op
