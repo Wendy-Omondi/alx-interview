@@ -1,4 +1,4 @@
-# **Minimum Operations**
+# **Lockboxes**
 ## **General**
 * Editor used: `emacs`
 * All files are interpreted/compiled on Ubuntu 14.04 LTS using `python3` (version 3.4.3)
